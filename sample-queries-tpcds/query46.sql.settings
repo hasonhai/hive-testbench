@@ -1,0 +1,5 @@
+SET hive.auto.convert.join=false;
+-- SET mapreduce.reduce.memory.mb=7168;
+-- SET mapreduce.reduce.java.opts=-Xmx6144m;
+-- SET mapreduce.map.memory.mb=7168;
+-- SET mapreduce.map.java.opts=-Xmx6144m;
