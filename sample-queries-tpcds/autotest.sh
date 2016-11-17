@@ -63,7 +63,7 @@ for query in ${QUERY_LIST}; do
     CUSTOM_SETTINGS=""
   fi
   echo "Submit query $query to hive..."
-  echo "Data Space before submission:"
+  echo "Data Space before submission:" >> ${query}.log
   hadoop fs -du -h / >> ${query}.log
   echo "Starting Time: $( date )" >> ${query}.log
   if [ "$CUSTOM_SETTINGS" != "" ]; then # if there is custom settings
@@ -72,6 +72,6 @@ for query in ${QUERY_LIST}; do
     time hive -i ${SETTINGS} -e "use $database; source $query;" 2>&1 | tee -a ${query}.log
   fi
   echo "Ending Time: $( date )" >> ${query}.log
-  echo "Data Space after submission:"
+  echo "Data Space after submission:" >> ${query}.log
   hadoop fs -du -h / >> ${query}.log
 done
